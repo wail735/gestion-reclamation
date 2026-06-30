@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-darkBg text-brand-text antialiased font-sans;
+  }
+  ::selection {
+    @apply bg-brand-green text-white;
+  }
+}
+
+/* Custom scrollbar for webkit - tailored for SEAAL brand */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: #1A5A96; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A5C8EA; 
+}
+
+/* Hide browser's native password reveal icon (Edge, Chrome) */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+input::-webkit-credentials-auto-fill-button {
+  display: none !important;
+}
+
+/* Glassmorphism utility classes */
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+  .glass-card {
+    @apply bg-brand-card/80 backdrop-blur-xl border border-brand-border shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+  }
+}

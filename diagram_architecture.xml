@@ -1,0 +1,473 @@
+<mxfile host="app.diagrams.net" modified="2026-06-02T15:00:00.000Z" agent="Antigravity" version="21.0.0">
+  <diagram name="Architecture MVC" id="mvc-seaal-diagram">
+    <mxGraphModel dx="1654" dy="1169" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!--                   TITLE                    -->
+        <!-- ═══════════════════════════════════════════ -->
+        <mxCell id="title" value="🏗️  Architecture MVC — Application SEAAL (Gestion des Réclamations)"
+          style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;
+                 whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#1a1a2e;"
+          vertex="1" parent="1">
+          <mxGeometry x="127" y="20" width="1400" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!--         CLIENT — BROWSER (TOP)             -->
+        <!-- ═══════════════════════════════════════════ -->
+        <mxCell id="client" value="&lt;b&gt;🌐  CLIENT&lt;/b&gt;&lt;br/&gt;Navigateur Web (Chrome / Firefox)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;
+                 fontSize=13;fontColor=#1a1a2e;arcSize=20;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="577" y="90" width="300" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!--    COUCHE VUE — FRONTEND React.js + Vite   -->
+        <!-- ═══════════════════════════════════════════ -->
+        <mxCell id="fe-container"
+          value="&lt;b&gt;COUCHE VUE — FRONTEND  (React.js + Vite) — Port 5173&lt;/b&gt;"
+          style="swimlane;startSize=35;fillColor=#d5e8d4;strokeColor=#82b366;
+                 fontSize=14;fontStyle=1;fontColor=#1a1a2e;arcSize=5;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="1294" height="225" as="geometry" />
+        </mxCell>
+
+        <!-- App.jsx / Router -->
+        <mxCell id="fe-router"
+          value="&lt;b&gt;🔀 App.jsx — React Router (ProtectedRoute)&lt;/b&gt;"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b9f6ca;strokeColor=#388e3c;
+                 fontSize=11;fontStyle=1;"
+          vertex="1" parent="fe-container">
+          <mxGeometry x="20" y="45" width="340" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Pages swimlane -->
+        <mxCell id="fe-pages"
+          value="&lt;b&gt;📄 Pages (Views)&lt;/b&gt;"
+          style="swimlane;startSize=25;fillColor=#f1f8e9;strokeColor=#82b366;fontSize=11;"
+          vertex="1" parent="fe-container">
+          <mxGeometry x="20" y="100" width="870" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-landing" value="LandingPage"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="10" y="35" width="110" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p-login" value="LoginPage"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="130" y="35" width="110" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p-home" value="Home"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="250" y="35" width="110" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p-complaints" value="Complaints"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="370" y="35" width="110" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p-admin" value="AdminUsers"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="490" y="35" width="110" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p-profile" value="Profile"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="610" y="35" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p-settings" value="Settings"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="720" y="35" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="p-reset" value="ResetPassword"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="10" y="70" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p-legal" value="Legal / Terms"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="130" y="70" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p-privacy" value="Privacy"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="250" y="70" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p-charter" value="Charter"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;"
+          vertex="1" parent="fe-pages">
+          <mxGeometry x="370" y="70" width="110" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Components -->
+        <mxCell id="fe-components"
+          value="&lt;b&gt;🧩 Components&lt;/b&gt;&lt;br/&gt;Navbar · Sidebar&lt;br/&gt;Cards · Modals"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f8e9;strokeColor=#82b366;fontSize=10;fontStyle=1;"
+          vertex="1" parent="fe-container">
+          <mxGeometry x="910" y="45" width="170" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- i18n -->
+        <mxCell id="fe-i18n"
+          value="&lt;b&gt;🌍 i18n / Locales&lt;/b&gt;&lt;br/&gt;Arabe · Français · Anglais"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f8e9;strokeColor=#82b366;fontSize=10;fontStyle=1;"
+          vertex="1" parent="fe-container">
+          <mxGeometry x="1100" y="45" width="175" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- Axios -->
+        <mxCell id="fe-axios"
+          value="&lt;b&gt;📡 Axios — HTTP Client&lt;/b&gt;&lt;br/&gt;Requêtes REST vers /api/*"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=10;fontStyle=1;"
+          vertex="1" parent="fe-container">
+          <mxGeometry x="910" y="135" width="365" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!--  COUCHE CONTRÔLEUR — BACKEND Node.js+Express -->
+        <!-- ═══════════════════════════════════════════ -->
+        <mxCell id="be-container"
+          value="&lt;b&gt;COUCHE CONTRÔLEUR — BACKEND  (Node.js + Express.js) — Port 5000&lt;/b&gt;"
+          style="swimlane;startSize=35;fillColor=#fff2cc;strokeColor=#d6b656;
+                 fontSize=14;fontStyle=1;fontColor=#1a1a2e;arcSize=5;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="80" y="490" width="1294" height="320" as="geometry" />
+        </mxCell>
+
+        <!-- Express Server / index.js -->
+        <mxCell id="be-server"
+          value="&lt;b&gt;🚀 index.js — Express Server&lt;/b&gt;&lt;br/&gt;CORS · JSON · Routes registration&lt;br/&gt;Nodemailer · Socket config"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe082;strokeColor=#d6b656;
+                 fontSize=10;fontStyle=1;"
+          vertex="1" parent="be-container">
+          <mxGeometry x="20" y="50" width="230" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Routes swimlane -->
+        <mxCell id="be-routes"
+          value="&lt;b&gt;📡 Routes (Express Router)&lt;/b&gt;"
+          style="swimlane;startSize=25;fillColor=#fffde7;strokeColor=#d6b656;fontSize=11;"
+          vertex="1" parent="be-container">
+          <mxGeometry x="20" y="160" width="230" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="r-auth" value="/api/auth"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-routes">
+          <mxGeometry x="15" y="30" width="200" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="r-complaints" value="/api/complaints"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-routes">
+          <mxGeometry x="15" y="63" width="200" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="r-users" value="/api/users"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-routes">
+          <mxGeometry x="15" y="96" width="200" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="r-stats" value="/api/stats"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-routes">
+          <mxGeometry x="15" y="129" width="200" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Middleware swimlane -->
+        <mxCell id="be-middleware"
+          value="&lt;b&gt;🛡️ Middleware&lt;/b&gt;"
+          style="swimlane;startSize=25;fillColor=#fffde7;strokeColor=#d6b656;fontSize=11;"
+          vertex="1" parent="be-container">
+          <mxGeometry x="280" y="50" width="230" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="m-auth"
+          value="&lt;b&gt;authMiddleware.js&lt;/b&gt;&lt;br/&gt;Vérification JWT Token"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-middleware">
+          <mxGeometry x="15" y="30" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="m-upload"
+          value="&lt;b&gt;uploadMiddleware.js&lt;/b&gt;&lt;br/&gt;Multer — Pièces jointes"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-middleware">
+          <mxGeometry x="15" y="100" width="200" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="m-role"
+          value="&lt;b&gt;Role Guard&lt;/b&gt;&lt;br/&gt;client · admin · agent"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-middleware">
+          <mxGeometry x="15" y="170" width="200" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Controllers swimlane -->
+        <mxCell id="be-controllers"
+          value="&lt;b&gt;⚙️ Controllers (Logique Métier)&lt;/b&gt;"
+          style="swimlane;startSize=25;fillColor=#fffde7;strokeColor=#d6b656;fontSize=11;"
+          vertex="1" parent="be-container">
+          <mxGeometry x="540" y="50" width="280" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="c-auth"
+          value="&lt;b&gt;authController.js&lt;/b&gt;&lt;br/&gt;register · login · logout&lt;br/&gt;resetPassword · me"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-controllers">
+          <mxGeometry x="15" y="30" width="250" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="c-complaint"
+          value="&lt;b&gt;complaintController.js&lt;/b&gt;&lt;br/&gt;create · getAll · update&lt;br/&gt;delete · classify · assign"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-controllers">
+          <mxGeometry x="15" y="95" width="250" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="c-user"
+          value="&lt;b&gt;userController.js&lt;/b&gt;&lt;br/&gt;getAll · getById&lt;br/&gt;update · delete"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-controllers">
+          <mxGeometry x="15" y="160" width="250" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="c-stats"
+          value="&lt;b&gt;statsController.js&lt;/b&gt;&lt;br/&gt;getDashboardStats"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-controllers">
+          <mxGeometry x="15" y="222" width="250" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- Utils swimlane -->
+        <mxCell id="be-utils"
+          value="&lt;b&gt;🔧 Utils&lt;/b&gt;"
+          style="swimlane;startSize=25;fillColor=#fffde7;strokeColor=#d6b656;fontSize=11;"
+          vertex="1" parent="be-container">
+          <mxGeometry x="850" y="50" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="u-email"
+          value="&lt;b&gt;sendEmail.js&lt;/b&gt;&lt;br/&gt;Nodemailer SMTP"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-utils">
+          <mxGeometry x="15" y="30" width="190" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="u-cron"
+          value="&lt;b&gt;cronTasks.js&lt;/b&gt;&lt;br/&gt;Tâches planifiées (node-cron)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;"
+          vertex="1" parent="be-utils">
+          <mxGeometry x="15" y="85" width="190" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Config -->
+        <mxCell id="be-config"
+          value="&lt;b&gt;⚙️ Config&lt;/b&gt;&lt;br/&gt;db.js (MongoDB URI)&lt;br/&gt;.env (Secrets)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#d6b656;fontSize=10;fontStyle=1;"
+          vertex="1" parent="be-container">
+          <mxGeometry x="850" y="210" width="220" height="95" as="geometry" />
+        </mxCell>
+
+        <!-- Uploads folder -->
+        <mxCell id="be-uploads"
+          value="&lt;b&gt;📁 uploads/&lt;/b&gt;&lt;br/&gt;Fichiers joints stockés"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#d6b656;fontSize=10;fontStyle=1;"
+          vertex="1" parent="be-container">
+          <mxGeometry x="1100" y="50" width="175" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- Export/Import scripts -->
+        <mxCell id="be-scripts"
+          value="&lt;b&gt;📜 Scripts Admin&lt;/b&gt;&lt;br/&gt;create-admin · create-client&lt;br/&gt;export_db · import_db&lt;br/&gt;seed-complaints"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#d6b656;fontSize=10;fontStyle=1;"
+          vertex="1" parent="be-container">
+          <mxGeometry x="1100" y="145" width="175" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!--   SERVICE IA — Python Flask — Port 5001    -->
+        <!-- ═══════════════════════════════════════════ -->
+        <mxCell id="ai-container"
+          value="&lt;b&gt;SERVICE IA — Python (Flask) — Port 5001&lt;/b&gt;"
+          style="swimlane;startSize=35;fillColor=#e1d5e7;strokeColor=#9673a6;
+                 fontSize=13;fontStyle=1;fontColor=#1a1a2e;arcSize=5;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="80" y="880" width="600" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ai-api"
+          value="&lt;b&gt;Flask API — app.py&lt;/b&gt;&lt;br/&gt;POST /classify&lt;br/&gt;Reçoit le texte de la réclamation&lt;br/&gt;Retourne la catégorie prédite"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#9673a6;fontSize=10;"
+          vertex="1" parent="ai-container">
+          <mxGeometry x="20" y="50" width="250" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ai-model"
+          value="&lt;b&gt;Modèle SBERT&lt;/b&gt;&lt;br/&gt;classification_seaal_sbert.py&lt;br/&gt;train.py — Entraînement&lt;br/&gt;reclamations_seaal.xlsx (Dataset)&lt;br/&gt;modele/ (Poids sauvegardés)"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#9673a6;fontSize=10;"
+          vertex="1" parent="ai-container">
+          <mxGeometry x="300" y="50" width="270" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!--   COUCHE MODÈLE — MongoDB + Mongoose       -->
+        <!-- ═══════════════════════════════════════════ -->
+        <mxCell id="db-container"
+          value="&lt;b&gt;COUCHE MODÈLE — Base de Données MongoDB (Mongoose ODM)&lt;/b&gt;"
+          style="swimlane;startSize=35;fillColor=#f8cecc;strokeColor=#b85450;
+                 fontSize=13;fontStyle=1;fontColor=#1a1a2e;arcSize=5;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="754" y="880" width="620" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="db-user"
+          value="&lt;b&gt;👤 User Model (User.js)&lt;/b&gt;&lt;br/&gt;_id · name · email&lt;br/&gt;password (bcrypt) · phone&lt;br/&gt;role (client / admin / agent)&lt;br/&gt;address · createdAt"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fde8e8;strokeColor=#b85450;fontSize=10;"
+          vertex="1" parent="db-container">
+          <mxGeometry x="20" y="50" width="255" height="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="db-complaint"
+          value="&lt;b&gt;📋 Complaint Model (Complaint.js)&lt;/b&gt;&lt;br/&gt;_id · userId (ref: User)&lt;br/&gt;title · description · category&lt;br/&gt;status · priority · attachments&lt;br/&gt;assignedTo · createdAt"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fde8e8;strokeColor=#b85450;fontSize=10;"
+          vertex="1" parent="db-container">
+          <mxGeometry x="305" y="50" width="290" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!--               LÉGENDE MVC                  -->
+        <!-- ═══════════════════════════════════════════ -->
+        <mxCell id="legend"
+          value="&lt;b&gt;Légende MVC&lt;/b&gt;&lt;br/&gt;&lt;font color=&#39;#2e7d32&#39;&gt;■&lt;/font&gt; VUE (Frontend React)&lt;br/&gt;&lt;font color=&#39;#f9a825&#39;&gt;■&lt;/font&gt; CONTRÔLEUR (Backend Express)&lt;br/&gt;&lt;font color=&#39;#c62828&#39;&gt;■&lt;/font&gt; MODÈLE (MongoDB)&lt;br/&gt;&lt;font color=&#39;#6a1b9a&#39;&gt;■&lt;/font&gt; SERVICE IA (Flask)"
+          style="text;html=1;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=top;
+                 whiteSpace=wrap;rounded=1;fontSize=11;fontColor=#333333;shadow=1;"
+          vertex="1" parent="1">
+          <mxGeometry x="1410" y="880" width="220" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!--             FLÈCHES / CONNEXIONS           -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <!-- Client → Frontend -->
+        <mxCell id="e-client-fe"
+          value="&lt;b&gt;HTTPS&lt;/b&gt;"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;
+                 exitX=0.5;exitY=1;exitDx=0;exitDy=0;
+                 entryX=0.5;entryY=0;entryDx=0;entryDy=0;
+                 strokeColor=#6c8ebf;strokeWidth=2.5;fontStyle=1;fontSize=10;"
+          edge="1" source="client" target="fe-container" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Frontend → Backend (REST API) -->
+        <mxCell id="e-fe-be"
+          value="&lt;b&gt;REST API — Axios&lt;/b&gt;&lt;br/&gt;GET · POST · PUT · DELETE /api/*"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;
+                 exitX=0.5;exitY=1;exitDx=0;exitDy=0;
+                 entryX=0.5;entryY=0;entryDx=0;entryDy=0;
+                 strokeColor=#d6b656;strokeWidth=2.5;fontStyle=1;fontSize=10;"
+          edge="1" source="fe-container" target="be-container" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Backend → AI Service (classify) -->
+        <mxCell id="e-be-ai"
+          value="&lt;b&gt;HTTP POST /classify&lt;/b&gt;&lt;br/&gt;texte → catégorie"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;
+                 exitX=0.25;exitY=1;exitDx=0;exitDy=0;
+                 entryX=0.5;entryY=0;entryDx=0;entryDy=0;
+                 strokeColor=#9673a6;strokeWidth=2.5;fontStyle=1;fontSize=10;"
+          edge="1" source="be-container" target="ai-container" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Backend → Database (Mongoose) -->
+        <mxCell id="e-be-db"
+          value="&lt;b&gt;Mongoose ODM&lt;/b&gt;&lt;br/&gt;CRUD · Queries · Aggregate"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;
+                 exitX=0.75;exitY=1;exitDx=0;exitDy=0;
+                 entryX=0.5;entryY=0;entryDx=0;entryDy=0;
+                 strokeColor=#b85450;strokeWidth=2.5;fontStyle=1;fontSize=10;"
+          edge="1" source="be-container" target="db-container" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Utils → sendEmail external -->
+        <mxCell id="e-email-ext"
+          value="SMTP (Email)"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;
+                 strokeColor=#ef6c00;strokeWidth=1.5;fontStyle=2;fontSize=10;dashed=1;"
+          edge="1" source="be-utils" target="client" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1430" y="560" />
+              <mxPoint x="1430" y="122" />
+              <mxPoint x="727" y="122" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Internal: Routes → Middleware -->
+        <mxCell id="e-r-m"
+          value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;
+                 exitX=1;exitY=0.5;exitDx=0;exitDy=0;
+                 entryX=0;entryY=0.5;entryDx=0;entryDy=0;
+                 strokeColor=#d6b656;strokeWidth=1.5;"
+          edge="1" source="be-routes" target="be-middleware" parent="be-container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Internal: Middleware → Controllers -->
+        <mxCell id="e-m-c"
+          value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;
+                 exitX=1;exitY=0.5;exitDx=0;exitDy=0;
+                 entryX=0;entryY=0.5;entryDx=0;entryDy=0;
+                 strokeColor=#d6b656;strokeWidth=1.5;"
+          edge="1" source="be-middleware" target="be-controllers" parent="be-container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Internal: Controllers → Utils -->
+        <mxCell id="e-c-u"
+          value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;
+                 exitX=1;exitY=0.5;exitDx=0;exitDy=0;
+                 entryX=0;entryY=0.5;entryDx=0;entryDy=0;
+                 strokeColor=#d6b656;strokeWidth=1.5;"
+          edge="1" source="be-controllers" target="be-utils" parent="be-container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Internal: Server → Routes -->
+        <mxCell id="e-srv-r"
+          value=""
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;
+                 exitX=0.5;exitY=1;exitDx=0;exitDy=0;
+                 entryX=0.5;entryY=0;entryDx=0;entryDy=0;
+                 strokeColor=#d6b656;strokeWidth=1.5;"
+          edge="1" source="be-server" target="be-routes" parent="be-container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Internal: Upload → Uploads folder -->
+        <mxCell id="e-up-folder"
+          value="stocke"
+          style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;
+                 exitX=1;exitY=0.5;exitDx=0;exitDy=0;
+                 entryX=0;entryY=0.5;entryDx=0;entryDy=0;
+                 strokeColor=#d6b656;strokeWidth=1;dashed=1;fontSize=9;"
+          edge="1" source="be-middleware" target="be-uploads" parent="be-container">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="177" />
+              <mxPoint x="850" y="87" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

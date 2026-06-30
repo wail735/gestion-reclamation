@@ -1,0 +1,13 @@
+@echo off
+echo Starting Smail Project...
+
+echo Starting Frontend...
+start cmd /k "cd frontend && npm run dev"
+
+echo Starting Backend...
+start cmd /k "cd backend && npm run dev"
+
+echo Starting AI-Service...
+start cmd /k "cd ai_service && .\venv\Scripts\python.exe app.py"
+
+echo All services started!

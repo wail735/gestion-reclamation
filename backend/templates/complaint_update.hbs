@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .header { background-color: #004d99; color: white; padding: 15px; border-radius: 8px 8px 0 0; text-align: center; }
+        .content { padding: 20px; line-height: 1.6; }
+        .footer { text-align: center; font-size: 0.8em; color: #888; margin-top: 20px; }
+        .status { font-weight: bold; color: #004d99; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Mise à jour de votre réclamation</h2>
+        </div>
+        <div class="content">
+            <p>Bonjour <strong>{{nom}}</strong>,</p>
+            <p>Le statut de votre réclamation N° <strong>{{id}}</strong> a été mis à jour.</p>
+            <p>Nouveau statut : <span class="status">{{statut}}</span></p>
+            <p>Réponse de l'administration :</p>
+            <blockquote style="background: #f9f9f9; border-left: 4px solid #004d99; padding: 10px; font-style: italic;">
+                {{reponseAdmin}}
+            </blockquote>
+            <p>Merci de votre confiance.</p>
+        </div>
+        <div class="footer">
+            &copy; 2026 Wakalati SEAAL. Tous droits réservés.
+        </div>
+    </div>
+</body>
+</html>
