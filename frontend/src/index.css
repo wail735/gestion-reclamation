@@ -95,3 +95,17 @@ input::-webkit-credentials-auto-fill-button {
 .react-tel-input .form-control:focus {
   box-shadow: none !important;
 }
+
+/* Fix input text color and background */
+.react-tel-input .form-control {
+  color: white !important;
+  background-color: transparent !important;
+}
+
+/* Fix the dropdown arrow color to be visible on dark background */
+.react-tel-input .selected-flag .arrow {
+  border-top-color: white !important;
+}
+.react-tel-input .selected-flag .arrow.up {
+  border-bottom-color: white !important;
+}
