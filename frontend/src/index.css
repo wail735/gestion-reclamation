@@ -45,3 +45,53 @@ input::-webkit-credentials-auto-fill-button {
     @apply bg-brand-card/80 backdrop-blur-xl border border-brand-border shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
   }
 }
+
+/* Custom Phone Input Styles */
+.react-tel-input .country-list {
+  background-color: #0c1a2c !important; /* brand-card */
+  border: 1px solid #1e3a5f !important; /* brand-border */
+  border-radius: 0.75rem !important; /* rounded-xl */
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  margin-top: 8px !important;
+  width: 320px !important;
+}
+
+.react-tel-input .country-list .country {
+  padding: 12px 15px !important;
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.2s ease !important;
+}
+
+.react-tel-input .country-list .country:hover,
+.react-tel-input .country-list .country.highlight {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.react-tel-input .country-list .country .dial-code {
+  color: #94a3b8 !important; /* brand-muted */
+  margin-left: 8px !important;
+}
+
+.react-tel-input .country-list .country .country-name {
+  color: white !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+.react-tel-input .selected-flag {
+  border-radius: 0.75rem 0 0 0.75rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.react-tel-input .selected-flag:hover, 
+.react-tel-input .selected-flag:focus,
+.react-tel-input .selected-flag.open {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.react-tel-input .form-control:focus {
+  box-shadow: none !important;
+}
