@@ -37,14 +37,4 @@ jobs:
       working-directory: ./frontend
       run: npm run build
 
-  build-docker-images:
-    needs: [test-backend, build-frontend]
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build Backend Image
-      run: docker build -t wakalati-backend ./backend
-    - name: Build Frontend Image
-      run: docker build -t wakalati-frontend ./frontend
-    - name: Build AI Service Image
-      run: docker build -t wakalati-ai ./ai_service
+
