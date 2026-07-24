@@ -1,5 +1,6 @@
 const Complaint = require('../models/Complaint');
 const User = require('../models/User');
+const AI_SERVICE = process.env.AI_SERVICE_URL || 'http://127.0.0.1:8000';
 const sendEmail = require('../utils/sendEmail');
 const { getIo } = require('../socket');
 
@@ -173,7 +174,7 @@ const createComplaint = asyncHandler(async (req, res) => {
         // Call FastAPI service if type is missing
         if (!type || type === 'undefined' || type.trim() === '') {
             try {
-                const aiRes = await fetch('http://127.0.0.1:8000/predict', {
+                const aiRes = await fetch(`${AI_SERVICE}/predict`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ description })
@@ -348,7 +349,7 @@ const updateComplaint = asyncHandler(async (req, res) => {
             if (description !== complaint.description) {
                 complaint.description = description;
                 try {
-                    const aiRes = await fetch('http://127.0.0.1:8000/predict', {
+                    const aiRes = await fetch(`${AI_SERVICE}/predict`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ description })
@@ -399,7 +400,7 @@ const getSimilarComplaints = asyncHandler(async (req, res) => {
             return res.json({ similar: [] });
         }
 
-        const aiRes = await fetch('http://127.0.0.1:8000/similar', {
+        const aiRes = await fetch(`${AI_SERVICE}/similar`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -447,7 +448,7 @@ const retrainAI = asyncHandler(async (req, res) => {
 
     // 3. Send to Python FastAPI service
     try {
-        const aiRes = await fetch('http://127.0.0.1:8000/retrain', {
+        const aiRes = await fetch(`${AI_SERVICE}/retrain`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ data: trainingData })
