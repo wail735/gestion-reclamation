@@ -10,7 +10,9 @@ COPY . .
 # Initialize/Train the model if it doesn't exist
 # RUN python train.py
 
-# Hugging Face Spaces utilise le port 7860
-EXPOSE 7860
+# Les fournisseurs Cloud (Google Cloud Run, Render, Koyeb) utilisent la variable d'environnement PORT.
+ENV PORT=8000
+EXPOSE $PORT
 
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860"]
+# Utilisation de la forme shell pour que la variable d'environnement $PORT soit interprétée
+CMD uvicorn app:app --host 0.0.0.0 --port $PORT
