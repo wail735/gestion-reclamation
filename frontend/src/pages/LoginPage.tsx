@@ -6,8 +6,9 @@ import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import { useAuthStore } from '../store/authStore';
 import AddressAutocomplete from '../components/AddressAutocomplete';
+import { API_BASE_URL } from '../config';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = `${API_BASE_URL}/api/auth`;
 
 const LoginPage = () => {
   const { t, i18n } = useTranslation();

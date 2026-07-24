@@ -4,8 +4,9 @@ import toast from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../store/authStore';
+import { API_BASE_URL } from '../config';
 
-const API_URL = 'http://localhost:5000/api/users';
+const API_URL = `${API_BASE_URL}/api/users`;
 
 const AdminUsers = () => {
   const { t } = useTranslation();

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../store/authStore';
 import { PieChart, Pie, Cell, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, Legend } from 'recharts';
+import { API_BASE_URL } from '../config';
 
 const translateType = (type, t) => {
   const map = {
@@ -54,7 +55,7 @@ const ClientDashboard = ({ user }) => {
     const fetchMyComplaints = async () => {
       try {
         const token = user?.token;
-        const res = await fetch('http://localhost:5000/api/complaints/mycomplaints', {
+        const res = await fetch(`${API_BASE_URL}/api/complaints/mycomplaints`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await res.json();
@@ -234,7 +235,7 @@ const AdminDashboard = ({ user }) => {
     const fetchStats = async () => {
       try {
         const token = user?.token;
-        const res = await fetch('http://localhost:5000/api/stats', {
+        const res = await fetch(`${API_BASE_URL}/api/stats`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await res.json();

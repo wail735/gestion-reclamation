@@ -3,8 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Lock, ArrowRight, CheckCircle, Eye, EyeOff } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { API_BASE_URL } from '../config';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = `${API_BASE_URL}/api/auth`;
 
 const ResetPassword = () => {
   const { token } = useParams();

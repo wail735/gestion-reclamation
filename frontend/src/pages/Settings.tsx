@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Save, Lock, User, Shield, Key, Eye, EyeOff } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
+import { API_BASE_URL } from '../config';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = `${API_BASE_URL}/api`;
 
 const Settings = () => {
   const storeUser = useAuthStore(state => state.user);

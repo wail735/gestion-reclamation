@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { io, Socket } from 'socket.io-client';
 import toast from 'react-hot-toast';
 import { useAuthStore } from '../store/authStore';
+import { API_BASE_URL } from '../config';
 
 let socket: Socket | null = null;
 
@@ -11,7 +12,7 @@ export const useSocket = () => {
   useEffect(() => {
     if (user && user.role === 'admin') {
       if (!socket) {
-        socket = io('http://localhost:5000', {
+        socket = io(API_BASE_URL, {
           withCredentials: true,
         });
 

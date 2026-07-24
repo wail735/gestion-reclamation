@@ -7,6 +7,7 @@ import { jsPDF } from 'jspdf';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../store/authStore';
 import AddressAutocomplete from '../components/AddressAutocomplete';
+import { API_BASE_URL } from '../config';
 
 const translateType = (type, t) => {
   const map = {
@@ -29,14 +30,14 @@ const translateStatus = (status, t) => {
   return map[status] ? t(`statuts.${map[status]}`) : status;
 };
 
-const API_URL = 'http://localhost:5000/api/complaints';
+const API_URL = `${API_BASE_URL}/api/complaints`;
 
 const getFileUrl = (path) => {
   if (!path) return '';
   if (path.startsWith('http') || path.startsWith('data:')) return path;
-  if (path.startsWith('/uploads/')) return `http://localhost:5000${path}`;
-  if (path.startsWith('/')) return `http://localhost:5000${path}`;
-  return `http://localhost:5000/uploads/${path}`;
+  if (path.startsWith('/uploads/')) return `${API_BASE_URL}${path}`;
+  if (path.startsWith('/')) return `${API_BASE_URL}${path}`;
+  return `${API_BASE_URL}/uploads/${path}`;
 };
 
 /* ------------------------------------------------------------------ */

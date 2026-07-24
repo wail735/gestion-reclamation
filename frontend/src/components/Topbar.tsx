@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../store/authStore';
+import { API_BASE_URL } from '../config';
 
 const Topbar = () => {
   const { t } = useTranslation();
@@ -58,7 +59,7 @@ const Topbar = () => {
         const token = user?.token;
         if (!token) return;
         
-        const endpoint = role === 'Administrateur' ? 'http://localhost:5000/api/complaints' : 'http://localhost:5000/api/complaints/mycomplaints';
+        const endpoint = role === 'Administrateur' ? `${API_BASE_URL}/api/complaints` : `${API_BASE_URL}/api/complaints/mycomplaints`;
         const res = await fetch(endpoint, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
