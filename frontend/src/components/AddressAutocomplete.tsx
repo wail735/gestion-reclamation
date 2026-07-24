@@ -33,17 +33,11 @@ const AddressAutocomplete = ({ value, onChange, placeholder, inputClassName = ""
     }
     setLoading(true);
     try {
-      // Append "Algérie" to restrict search generally, but allow user input
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchTerm)}&countrycodes=dz&addressdetails=1&limit=5`);
-      let data = await res.json();
-      
-      // Filter for Alger and Tipaza if required, though nominatim may use different spellings
-      // Since the user asked for Alger and Tipaza seulement, we can filter by state or display_name
-      data = data.filter(item => {
-          const lowerName = item.display_name.toLowerCase();
-          return lowerName.includes('alger') || lowerName.includes('tipaza') || lowerName.includes('tipasa');
-      });
-
+      // Recherche dans toute l'Algérie (58 wilayas + toutes les cités)
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchTerm)}&countrycodes=dz&addressdetails=1&limit=8&accept-language=fr`
+      );
+      const data = await res.json();
       setSuggestions(data);
     } catch (error) {
       console.error("Erreur géocodage:", error);
@@ -114,7 +108,7 @@ const AddressAutocomplete = ({ value, onChange, placeholder, inputClassName = ""
                 </div>
               ))
             ) : (
-              <div className="p-4 text-sm text-brand-muted text-center">Aucune adresse trouvée (Alger/Tipaza uniquement)</div>
+              <div className="p-4 text-sm text-brand-muted text-center">Aucune adresse trouvée en Algérie</div>
             )}
           </motion.div>
         )}
