@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import { useAuthStore } from '../store/authStore';
 import AddressAutocomplete from '../components/AddressAutocomplete';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import { API_BASE_URL } from '../config';
 
 const API_URL = `${API_BASE_URL}/api/auth`;
@@ -81,17 +83,8 @@ const LoginPage = () => {
       errors.confirmMotDePasse = t('login.error_password_mismatch');
     }
 
-    if (registerData.phone && registerData.phone !== '+213') {
-      const phone = registerData.phone;
-      if (!phone.startsWith('+213')) {
-        errors.phone = t('login.error_phone_format');
-      } else if (phone.length > 4 && !['5', '6', '7'].includes(phone[4])) {
-        errors.phone = t('login.error_phone_format');
-      } else if (phone.length > 13) {
-        errors.phone = t('login.error_phone_format');
-      } else if (phone.length > 4 && !/^\+213[5-7]\d*$/.test(phone)) {
-        errors.phone = t('login.error_phone_format');
-      }
+    if (registerData.phone && registerData.phone.length < 8) {
+      errors.phone = t('login.error_phone_format');
     }
 
     if (registerData.adresse && registerData.adresse.length > 150) {
@@ -240,9 +233,16 @@ const LoginPage = () => {
             </div>
 
             <div className="flex flex-col">
-              <div className="relative group">
-                <Phone className={`${iconPosLg} text-brand-muted transition-colors group-focus-within:text-brand-green`} size={16} />
-                <input type="tel" placeholder={t('login.phone_placeholder')} value={registerData.phone} onFocus={() => !registerData.phone && setRegisterData({ ...registerData, phone: '+213' })} onChange={e => setRegisterData({ ...registerData, phone: e.target.value })} className={`${inputClass} ${fieldErrors.phone ? 'border-red-500/50 focus:border-red-500/50 focus:ring-red-500/50' : ''}`} autoComplete="off" minLength={13} maxLength={13} pattern="^\+213[5-7]\d{8}$" />
+              <div className="relative group phone-input-wrapper">
+                <PhoneInput
+                  country={'dz'}
+                  value={registerData.phone}
+                  onChange={phone => setRegisterData({ ...registerData, phone: `+${phone}` })}
+                  inputClass={`${inputClass} !w-full !pl-12 !h-[48px] bg-transparent !border-0`}
+                  containerClass={`w-full ${inputClass} !p-0 overflow-hidden flex items-center ${fieldErrors.phone ? 'border-red-500/50 focus-within:border-red-500/50' : 'focus-within:border-brand-blue'}`}
+                  buttonClass="!bg-transparent !border-0 !border-r !border-brand-border !hover:bg-brand-border/30"
+                  dropdownClass="!bg-brand-card !text-white !border-brand-border custom-phone-dropdown"
+                />
               </div>
               {fieldErrors.phone && <span className="text-red-400 text-[10px] mt-1 ml-1 font-medium">{fieldErrors.phone}</span>}
             </div>
@@ -429,9 +429,16 @@ const LoginPage = () => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <div className="relative group">
-                  <Phone className={`${iconPosLg} text-brand-muted`} size={16} />
-                  <input type="tel" placeholder={t('login.phone_placeholder')} value={registerData.phone} onFocus={() => !registerData.phone && setRegisterData({ ...registerData, phone: '+213' })} onChange={e => setRegisterData({ ...registerData, phone: e.target.value })} className={`${inputClass} ${fieldErrors.phone ? 'border-red-500/50 focus:border-red-500/50' : ''}`} autoComplete="off" minLength={13} maxLength={13} pattern="^\+213[5-7]\d{8}$" />
+                <div className="relative group phone-input-wrapper">
+                  <PhoneInput
+                    country={'dz'}
+                    value={registerData.phone}
+                    onChange={phone => setRegisterData({ ...registerData, phone: `+${phone}` })}
+                    inputClass={`${inputClass} !w-full !pl-12 !h-[48px] bg-transparent !border-0`}
+                    containerClass={`w-full ${inputClass} !p-0 overflow-hidden flex items-center ${fieldErrors.phone ? 'border-red-500/50 focus-within:border-red-500/50' : 'focus-within:border-brand-blue'}`}
+                    buttonClass="!bg-transparent !border-0 !border-r !border-brand-border !hover:bg-brand-border/30"
+                    dropdownClass="!bg-brand-card !text-white !border-brand-border custom-phone-dropdown"
+                  />
                 </div>
                 {fieldErrors.phone && <span className="text-red-400 text-[10px] mt-1 ml-1 font-medium">{fieldErrors.phone}</span>}
               </div>
